@@ -15,7 +15,6 @@ pipeline {
       steps {
         sh '''URL =$(cat /var/lib/jenkins/jobs/apparao2017/jobs/pipeline1/branches/master/builds/lastStableBuild/log | grep war| grep Uploading| sed -e 's/Uploading: / /')
 
-echo $URL
 cd /opt/
 sudo wget $URL -O javaee7.war
 '''
