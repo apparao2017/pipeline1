@@ -20,7 +20,7 @@ cd /opt/
 sudo wget $temp -O javaee7.war
 sudo tomcat/bin/shutdown.sh
 sudo rm -rf tomcat/webapps/*
-mv javaee7.war tomcat/webapps/
+sudo mv javaee7.war tomcat/webapps/
 sudo tomcat/bin/startup.sh 
 '''
       }
