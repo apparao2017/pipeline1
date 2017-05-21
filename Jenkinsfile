@@ -16,8 +16,12 @@ pipeline {
         sh '''temp=$(cat /var/lib/jenkins/jobs/apparao2017/jobs/pipeline1/branches/master/builds/lastStableBuild/log | grep war| grep Uploading| sed -e "s/Uploading: / /")
 echo "APPARAO"
 echo $temp
-#cd /opt/
-#sudo wget $URL -O javaee7.war
+cd /opt/
+sudo wget $temp -O javaee7.war
+sudo tomcat/bin/shutdown.sh
+rm -rf tomcat/webapps/*
+mv javaee7.war tomcat/webapps/
+sudo tomcat/bin/startup.sh 
 '''
       }
     }
