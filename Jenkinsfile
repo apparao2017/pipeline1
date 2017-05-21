@@ -13,7 +13,7 @@ pipeline {
     }
     stage('deploy tomcat') {
       steps {
-        sh '''temp=$(cat /var/lib/jenkins/jobs/apparao2017/jobs/pipeline1/branches/master/builds/lastStableBuild/log | grep war| grep Uploading| sed -e "s/Uploading: / /")
+        sh '''temp=$(cat /var/lib/jenkins/jobs/apparao2017/jobs/pipeline1/branches/master/builds/lastSuccessfulBuild/log | grep war| grep Uploading| sed -e "s/Uploading: / /")
 echo "APPARAO"
 echo $temp
 cd /opt/
